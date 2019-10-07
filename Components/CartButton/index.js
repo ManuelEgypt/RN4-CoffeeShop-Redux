@@ -6,6 +6,10 @@ import { connect } from "react-redux";
 
 class CartButton extends Component {
   render() {
+    let n = 0;
+    this.props.items.map(item => {
+      n += item.quantity;
+    });
     return (
       <View
         style={{
@@ -28,9 +32,7 @@ class CartButton extends Component {
               }}
             />
           }
-          BadgeElement={
-            <Text style={{ color: "#FFFFFF" }}>{this.props.items.length}</Text>
-          }
+          BadgeElement={<Text style={{ color: "#FFFFFF" }}>{n}</Text>}
           IconBadgeStyle={{
             width: 20,
             height: 20,
