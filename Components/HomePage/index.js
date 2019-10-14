@@ -9,18 +9,15 @@ import { Container, Header } from "native-base";
 import styles from "./styles";
 
 // Components
-import CoffeeList from "../CoffeeList";
-import CoffeeCart from "../CoffeeCart";
-import CoffeeDetail from "../CoffeeDetail";
-import Login from "../Login";
+
 
 // Actions
-import { getCoffeeShops } from "../../store/actions/coffeeActions";
+import { getTravelPackages } from "../../store/actions/travelPackageActions";
 import AppContainer from "../../Navigation";
 
 class HomePage extends Component {
   componentDidMount() {
-    this.props.getCoffeeShops();
+    this.props.getTravelPackages();
   }
   render() {
     return (
@@ -32,7 +29,7 @@ class HomePage extends Component {
   }
 }
 const mapDispatchToProps = dispatch => ({
-  getCoffeeShops: () => dispatch(getCoffeeShops())
+  getTravelPackages: () => dispatch(getTravelPackages())
 });
 
 export default connect(

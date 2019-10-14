@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
 
-import coffeeReducer from "./coffeeReducer";
+import travelPackageReducer from "./travelPackageReducer";
 import cartReducer from "./cartReducer";
+import userReducer from "./auth";
 
 export default combineReducers({
-  coffeeReducer: coffeeReducer,
-  cartReducer: cartReducer
+  travelPackageReducer: travelPackageReducer,
+  cartReducer: cartReducer,
+  userReducer: userReducer,
 });

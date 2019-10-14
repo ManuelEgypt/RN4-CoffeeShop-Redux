@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "CoffeeApp",
+    "name": "TravelApp",
     "description": "This project is really great.",
-    "slug": "CoffeeApp",
+    "slug": "TravelApp",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": ["ios", "android"],

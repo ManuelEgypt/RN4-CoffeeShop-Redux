@@ -9,7 +9,7 @@ import { Text, List, Button } from "native-base";
 // Component
 import CartItem from "./CartItem";
 
-class CoffeeCart extends Component {
+class TravelPackageCart extends Component {
   checkout = () => {
     this.props.checkoutCart();
     showMessage({
@@ -52,4 +52,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CoffeeCart);
+)(TravelPackageCart);

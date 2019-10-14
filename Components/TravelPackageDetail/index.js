@@ -21,13 +21,13 @@ import {
 import styles from "./styles";
 
 //List
-import coffeeshops from "../CoffeeList/list";
+import travelPackages from "../TravelPackageList/list";
 import CartButton from "../CartButton";
 
-class CoffeeDetail extends Component {
+class TravelPackageDetail extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
-      title: navigation.getParam("coffeeShop").name,
+      title: navigation.getParam("travelPackage").name,
       headerRight: <CartButton />
     };
   };
@@ -49,22 +49,22 @@ class CoffeeDetail extends Component {
   };
 
   render() {
-    const { coffeeShops, loading } = this.props.coffeeReducer;
+    const { travelPackages, loading } = this.props.travelPackageReducer;
     if (loading) return <Content />;
-    const coffeeshop = this.props.navigation.getParam("coffeeShop");
+    const travelPackage = this.props.navigation.getParam("travelPackage");
     return (
       <Content>
         <List>
           <ListItem style={styles.top}>
             <Left>
               <Text style={styles.text}>
-                {coffeeshop.name + "\n"}
-                <Text note>{coffeeshop.location}</Text>
+                {travelPackage.name + "\n"}
+                <Text note>{travelPackage.location}</Text>
               </Text>
             </Left>
             <Body />
             <Right>
-              <Thumbnail bordered source={{ uri: coffeeshop.img }} />
+              <Thumbnail bordered source={{ uri: travelPackage.img }} />
             </Right>
           </ListItem>
           <ListItem style={{ borderBottomWidth: 0 }}>
@@ -111,7 +111,7 @@ class CoffeeDetail extends Component {
 }
 
 const mapStateToProps = state => ({
-  coffeeReducer: state.coffeeReducer
+  travelPackageReducer: state.travelPackageReducer
 });
 
 const mapDispatchToProps = dispatch => {
@@ -123,4 +123,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CoffeeDetail);
+)(TravelPackageDetail);

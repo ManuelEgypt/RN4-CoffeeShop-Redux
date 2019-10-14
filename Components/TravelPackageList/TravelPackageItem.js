@@ -7,15 +7,15 @@ import { ListItem, Card, CardItem, Thumbnail, Text, Left } from "native-base";
 // Style
 import styles from "./styles";
 
-class CoffeeItem extends Component {
+class TravelPackageItem extends Component {
   handlePress = () => {
     alert("Pressed");
   };
   render() {
-    const { coffeeShop } = this.props;
+    const { travelPackage } = this.props;
     return (
       <ImageBackground
-        source={{ uri: coffeeShop.background }}
+        source={{ uri: travelPackage.background }}
         style={styles.background}
       >
         <View style={styles.overlay} />
@@ -23,8 +23,8 @@ class CoffeeItem extends Component {
           button
           style={styles.listitem}
           onPress={() =>
-            this.props.navigation.navigate("CoffeeDetail", {
-              coffeeShop: coffeeShop
+            this.props.navigation.navigate("TravelPackageDetail", {
+              travelPackage: travelPackage
             })
           }
         >
@@ -33,12 +33,12 @@ class CoffeeItem extends Component {
               <Left>
                 <Thumbnail
                   bordered
-                  source={{ uri: coffeeShop.img }}
+                  source={{ uri: travelPackage.img }}
                   style={styles.thumbnail}
                 />
-                <Text style={styles.text}>{coffeeShop.name}</Text>
+                <Text style={styles.text}>{travelPackage.name}</Text>
                 <Text note style={styles.text}>
-                  {coffeeShop.distance}
+                  {travelPackage.distance}
                 </Text>
               </Left>
             </CardItem>
@@ -49,4 +49,4 @@ class CoffeeItem extends Component {
   }
 }
 
-export default withNavigation(CoffeeItem);
+export default withNavigation(TravelPackageItem);

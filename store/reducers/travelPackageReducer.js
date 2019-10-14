@@ -1,19 +1,19 @@
 import * as actionTypes from "../actions/types";
 
 const initialState = {
-  coffeeShops: [],
+  travelPackages: [],
   loading: true
 };
 
-const coffeeReducer = (state = initialState, action) => {
+const travelPackageReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.GET_COFFEESHOPS:
+    case actionTypes.GET_TRAVELPACKAGES:
       return {
         ...state,
-        coffeeShops: action.payload,
+        travelPackages: action.payload,
         loading: false
       };
-    case actionTypes.COFFEESHOPS_LOADING:
+    case actionTypes.TRAVELPACKAGES_LOADING:
       return {
         ...state,
         loading: true
@@ -23,4 +23,4 @@ const coffeeReducer = (state = initialState, action) => {
   }
 };
 
-export default coffeeReducer;
+export default travelPackageReducer;

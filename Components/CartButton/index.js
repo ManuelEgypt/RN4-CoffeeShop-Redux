@@ -21,7 +21,7 @@ class CartButton extends Component {
         <IconBadge
           MainElement={
             <Icon
-              onPress={() => this.props.navigation.navigate("CoffeeCart")}
+              onPress={() => this.props.navigation.navigate("TravelPackageCart")}
               name="cart"
               style={{
                 color: "white",

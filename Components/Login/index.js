@@ -1,4 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
+
+import { login } from "../../store/actions/authActions";
+import { signup } from "../../store/actions/authActions";
 
 // NativeBase Components
 import {
@@ -16,10 +21,32 @@ import {
 } from "native-base";
 
 class Login extends Component {
+  state = {
+    username: "",
+    password: ""
+  };
+  handleChange = object => {
+    this.setState(object);
+  };
+
+  handleSubmit = () => {
+    this.props.login(this.state);
+    this.props.navigation.navigate("Profile")
+  };
+
+  handleSubmit2 = () => {
+    this.props.signup(this.state);
+    this.props.navigation.navigate("TravelPackageList")
+  };
+
+
   render() {
-    return (
+    const { username, password } = this.state;
+    return(
       <Content>
-        <Header transparent />
+        <Header transparent >
+          <Text>{this.props.user?this.props.user.username:null}</Text>
+          </Header>
         <List>
           <ListItem style={{ borderBottomWidth: 0 }}>
             <Body>
@@ -35,7 +62,13 @@ class Login extends Component {
                     marginBottom: 10
                   }}
                 >
-                  <Input autoCorrect={false} autoCapitalize="none" />
+                  <Input 
+                    autoCorrect={false}
+                   autoCapitalize="none" 
+                   name="username" 
+                   value={username} 
+                   placeholder="Username" 
+                   onChangeText={username => this.handleChange({ username })}/>              
                 </Item>
                 <Body>
                   <Label style={{ color: "white" }}>Password</Label>
@@ -48,6 +81,10 @@ class Login extends Component {
                     autoCorrect={false}
                     secureTextEntry
                     autoCapitalize="none"
+                    value={password}
+                    placeholder="Password"
+                    name="password"
+                    onChangeText={password => this.handleChange({ password })}
                   />
                 </Item>
               </Form>
@@ -56,14 +93,14 @@ class Login extends Component {
           <Button
             full
             success
-            onPress={() => this.props.navigation.navigate("Profile")}
+            onPress={this.handleSubmit}
           >
             <Text>Login</Text>
           </Button>
           <Button
             full
             warning
-            onPress={() => this.props.navigation.navigate("CoffeeList")}
+            onPress={this.handleSubmit2}
           >
             <Text>Register</Text>
           </Button>
@@ -76,4 +113,19 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = state => {
+  return {
+    user: state.userReducer.user,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    login: userData => dispatch(login(userData)),
+    signup: userData => dispatch(signup(userData))
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);

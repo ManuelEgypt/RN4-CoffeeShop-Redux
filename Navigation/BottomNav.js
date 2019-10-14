@@ -3,12 +3,12 @@ import React from "react";
 import { Icon } from "native-base";
 import AuthStack from "./AuthStack";
 import OrderStack from "./OrderStack";
-import CoffeeStack from "./CoffeeStack";
+import TravelPackageStack from "./TravelPackageStack";
 
 const BottomNav = createBottomTabNavigator(
   {
     Auth: AuthStack,
-    Coffee: CoffeeStack,
+    TravelPackage: TravelPackageStack,
     Order: OrderStack
   },
   {
@@ -22,7 +22,7 @@ const BottomNav = createBottomTabNavigator(
             iconName = "account";
             iconType = "MaterialCommunityIcons";
             break;
-          case "Coffee":
+          case "TravelPackage":
             iconName = "coffee";
             iconType = "MaterialCommunityIcons";
             break;
